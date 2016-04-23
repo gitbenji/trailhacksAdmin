@@ -19,28 +19,42 @@
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="Skeleton-2.0.4/css/normalize.css">
+  <link rel="stylesheet" href="Skeleton-2.0.4/css/skeleton.css">
+  <link rel="stylesheet" href="css/styles.css">
+
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
   <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
   <style>
     body { margin:0; padding:0; }
     #map { position:absolute; top:0; bottom:0; width:100%; }
   </style>
-  </head>
+
+</head>
 
 <body>
   <div id='map'></div>
+  <div class='five columns offset-by-seven side-hidden' id='sidebar'>
+    <h2 class='markerName side-text'>Marker 02</h2>
+    <p class='trailName side-text'>Heritage Trail</p>
+    <p class='latitude side-text'>Latitude: 82.371275</p>
+    <p class='longitude side-text'>Longitude: -84.745613</p>
+
+  </div>
+  <div id='test-click'>
+  </div>
   <script>
   L.mapbox.accessToken = 'pk.eyJ1IjoiYnNoYW5rd2l0eiIsImEiOiJjaW14cHA0YTcwM2x2dXdtNGN1dDc5OXN0In0.URoO3IYb5g29cxUykBZ9Aw';
   var map = L.mapbox.map('map', 'mapbox.streets')
       .setView([40, -74.50], 9);
   </script>
+
+  <script src='js/jquery.js'></script>
+  <script src='js/scripts.js'></script>
 </body>
 </html>

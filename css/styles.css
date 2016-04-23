@@ -1,0 +1,38 @@
+
+#test-click {
+  position: absolute;
+  z-index: 2;
+  height: 60px;
+  width: 60px;
+  background-color: red;
+}
+
+#sidebar {
+  position: absolute;
+  height: 100vh;
+  z-index: 1;
+  background-color: rgba(128, 128, 128, 0.8);
+  float: right;
+  transition: all 0.3s ease;
+  padding-top: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
+  color: white;
+}
+
+.side-hidden {
+  margin-left: 100% !important;
+  transition: all 0.3s ease;
+}
+
+.side-text {
+  margin: 0;
+}
+
+.markerName {
+  padding-bottom: 5px;
+}
+
+.trailName {
+  padding-bottom: 10px;
+}
