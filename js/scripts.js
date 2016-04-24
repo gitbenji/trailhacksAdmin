@@ -11,12 +11,13 @@ var map = L.mapbox.map('map', 'mapbox.streets')
 
 // fill in the input values of the sidebar
 function fillSidebar(markerObject) {
-  $('#markerName').val(markerObject.markerName);
-  $('#trailName').val(markerObject.trailName);
-  $('#loopName').val(markerObject.loopName);
-  $('#latitude').val(markerObject.lat);
-  $('#longitude').val(markerObject.lng);
-  $('#summary').val(markerObject.summaryVal);
+  $('#markerName').val(markerObject.name);
+  $('#beaconNum').val(markerObject.beacon_number);
+  $('#trailName').val(markerObject.trail_name);
+  $('#loopName').val(markerObject.loop_name);
+  $('#latitude').val(markerObject.latitude);
+  $('#longitude').val(markerObject.longitude);
+  $('#summary').val(markerObject.summary);
   var iconArr = $('.hazards');
   for(var j=0; j<iconArr.length; j++) {
     iconArr[j].checked = false;
@@ -73,8 +74,8 @@ map.on('click', function(e) {
     var markerVar = createMarker(lat, lng);
     activeMarker = markerVar.id;
     var markerObject = new Object();
-    markerObject.lat = lat;
-    markerObject.lng = lng;
+    markerObject.latitude = lat;
+    markerObject.longitude = lng;
     markerObject.hazardArr = [];
     markerArr.push(markerObject);
 
@@ -126,13 +127,14 @@ $('#submitMarker').on('click', function() {
 
   var markerObject = markerArr[activeMarker];
 
-  markerObject.marker_name = $("#markerName").val();
+  markerObject.name = $("#markerName").val();
   markerObject.trail_name = $("#trailName").val();
   markerObject.loop_name = $("#loopName").val();
   markerObject.beacon_number = $("#beaconNum").val();
   markerObject.latitude = $("#latitude").val();
   markerObject.longitude = $("#longitude").val();
   markerObject.summary = $("#summary").val();
+  markerObject.trail_id = Number($("#trailName").val());
   markerObject.hazard_arr = hazardArr;
   markerObject.auth_token = sessionStorage.getItem('authtoken');
 
