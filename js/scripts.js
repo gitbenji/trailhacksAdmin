@@ -3,10 +3,11 @@
 var markerArr = [];
 var activeMarker;
 var i = markerArr.length;
+var isFlipped = false;
 
 L.mapbox.accessToken = 'pk.eyJ1IjoiYnNoYW5rd2l0eiIsImEiOiJjaW14cHA0YTcwM2x2dXdtNGN1dDc5OXN0In0.URoO3IYb5g29cxUykBZ9Aw';
 var map = L.mapbox.map('map', 'mapbox.streets')
-.setView([30.433832, -84.290650],12);
+.setView([30.433832, -84.290650], 12);
 
 // fill in the input values of the sidebar
 function fillSidebar(markerObject) {
@@ -38,6 +39,11 @@ function createMarker(lat,lng) {
   return markerVar;
 }
 
+function flipUI() {
+  $('#sidebar').toggleClass('side-flip');
+  $('#map').toggleClass('map-flip');
+}
+
 // grab lat & lon on click
 map.on('click', function(e) {
     var lat = e.latlng.lat;
@@ -61,15 +67,26 @@ map.on('click', function(e) {
       var markerObject = markerArr[activeMarker];
       console.log(activeMarker, markerObject);
 
+      if (!isFlipped) {
+        flipUI();
+        isFlipped = true;
+      }
+
       fillSidebar(markerObject);
     });
 
-    $('#sidebar').removeClass('side-hidden');
+    if (!isFlipped) {
+      flipUI();
+      isFlipped = true;
+    }
 });
 
+$('#exitSide').on('click', function() {
+  flipUI();
+  isFlipped = false;
+});
 
-
-$('#button').on('click', function() {
+$('#submitMarker').on('click', function() {
 
   var markerObject = markerArr[activeMarker];
   console.log(activeMarker, markerObject);
@@ -85,25 +102,6 @@ $('#button').on('click', function() {
   console.log(markerObject);
   console.log(markerArr);
 
-
-  // $.ajax ({
-  // 		url: "trailhacks-api.herokuapp.com",
-  // 		type: "POST",
-  // 		data: JSON.stringify(markerObject),
-  // 		contentType: "application/json",
-  // 		success: function(result) {
-  // 			console.log(result);
-  // 		},
-  // 		error: function() {
-  // 			console.log("error");
-  // 		}
-  // 	});
+  flipUI();
+  isFlipped = false;
 });
-
-// $(document).ready(function() {
-//   // Sidebar stuff
-//   $('#test-click').on('click', function() {
-//     $('#sidebar').toggleClass('side-hidden');
-//   });
-//
-// });
