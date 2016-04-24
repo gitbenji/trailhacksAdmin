@@ -125,17 +125,31 @@ $('#submitMarker').on('click', function() {
 
   var markerObject = markerArr[activeMarker];
 
-  markerObject.markerName = $("#markerName").val();
-  markerObject.trailName = $("#trailName").val();
-  markerObject.loopName = $("#loopName").val();
-  markerObject.lat = $("#latitude").val();
-  markerObject.lng = $("#longitude").val();
-  markerObject.summaryVal = $("#summary").val();
-  markerObject.hazardArr = hazardArr;
+  markerObject.marker_name = $("#markerName").val();
+  markerObject.trail_name = $("#trailName").val();
+  markerObject.loop_name = $("#loopName").val();
+  markerObject.latitude = $("#latitude").val();
+  markerObject.longitude = $("#longitude").val();
+  markerObject.summary = $("#summary").val();
+  markerObject.hazard_arr = hazardArr;
+  markerObject.auth_token = sessionStorage.getItem('authtoken');
 
   markerArr[activeMarker] =  markerObject;
   console.log(markerObject);
   console.log(markerArr);
+
+  $.ajax ({
+      url: "http://localhost:3000/markers",
+      type: "POST",
+      data: markerObject,
+      success: function(result) {
+        console.log(result);
+      },
+      error: function() {
+        console.log("error");
+      }
+  });
+
 
   flipUI();
   isFlipped = false;

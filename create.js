@@ -9,10 +9,10 @@ $('#submit').on('click',function(){
   loginObject.password = $('#password').val();
   console.log('click');
   $.ajax ({
-      url: "https://trailhacks-api.herokuapp.com/users",
+      url: "http://localhost:3000/users",
       crossDomain: true,
       type: "POST",
-      data: JSON.stringify(loginObject),
+      data: loginObject,
       dataType: "json",
       contentType: "application/json",
       success: function(result) {
