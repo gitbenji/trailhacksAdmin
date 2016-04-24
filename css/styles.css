@@ -64,7 +64,7 @@ body {
 
 #map {
   position: absolute;
-  top: 6em;
+  top: 7em;
   /* margin-left: 0em; */
   left: 6em;
   bottom: 6em;
@@ -72,7 +72,7 @@ body {
   width: 88%;
   margin-bottom: 6em;
   z-index: 3;
-  box-shadow: 0px 25px 85px #232323;
+  box-shadow: 0px 25px 85px #939393;
   transition: all 0.3s ease;
 }
 
@@ -88,29 +88,29 @@ body {
   position: absolute;
   height: 90vh;
   z-index: 1;
-  background-color: #dadada;
-  margin-top: 1%;
+  background-color: #eaeaea;
+  top: 1%;
   padding-top: 40px;
   padding-left: 50px;
   padding-right: 50px;
-  color: white;
-  box-shadow: 0px 5px 15px #232323;
+  color: #535353;
+  box-shadow: 0px 5px 15px #939393;
   transition: all 0.3s ease;
 }
 
 .side-flip {
   z-index: 3 !important;
   height: 92vh !important;
-  margin-top: 1.6% !important;
-  box-shadow: 0px 25px 85px #232323 !important;
+  box-shadow: 0px 25px 85px #939393 !important;
   transition: all 0.3s ease !important;
 }
 
 .map-flip {
   z-index: 1 !important;
+  top: 9em !important;
   height: 76% !important;
   width: 84.658% !important;
-  box-shadow: 0px 5px 15px #232323 !important;
+  box-shadow: 0px 5px 15px #939393 !important;
   transition: all 0.3s ease !important;
 }
 
@@ -148,4 +148,11 @@ input.login{
 
 div.headingMargin{
   margin-top: 12em;
+}
+
+#header {
+  margin-top: 21px;
+  margin-left: 92px;
+  font-size: 5em;
+  color: #C3D694;
 }
