@@ -9,8 +9,8 @@ var map = L.mapbox.map('map', 'mapbox.streets')
 
 // fill in the html for latitude and longitude of the sidebar
 function fillSidebarLatLng(lat, lng) {
-  document.getElementsByClassName('latitude')[0].innerHTML = "Latitude: " + lat;
-  document.getElementsByClassName('longitude')[0].innerHTML = "Longitude: " + lng;
+  $('#latitude').val(lat);
+  $('#longitude').val(lng);
 }
 
 
@@ -44,6 +44,7 @@ map.on('click', function(e) {
     fillSidebarLatLng(lat, lng);
 
     var markerVar = createMarker(lat, lng);
+    console.log(markerVar);
     var markerObject = new Object();
 
     markerObject.markerName = $("#markerName").val();
@@ -58,6 +59,7 @@ map.on('click', function(e) {
     markerVar.on('click', function(e) {
       var lat = e.latlng.lat;
       var lng = e.latlng.lng;
+      console.log(e.target.id);
 
       fillSidebarLatLng(lat, lng);
     });
