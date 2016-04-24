@@ -13,6 +13,11 @@ function fillSidebarLatLng(lat, lng) {
   document.getElementsByClassName('longitude')[0].innerHTML = "Longitude: " + lng;
 }
 
+
+// function fillSidebarNames()
+// document.getElementsByClassName('markerName')[0].innerHTML =
+
+
 function createMarker (lat,lng){
   var markerVar = L.marker(new L.LatLng(lat, lng), {
       icon: L.mapbox.marker.icon({
@@ -22,6 +27,7 @@ function createMarker (lat,lng){
   });
   markerVar.bindPopup('This marker is draggable! Move it around.');
   markerVar.addTo(map);
+
 
   markerVar.id = i;
   i++;
@@ -34,12 +40,20 @@ map.on('click', function(e) {
     var lat = e.latlng.lat;
     var lng = e.latlng.lng;
 
+
     fillSidebarLatLng(lat, lng);
 
     var markerVar = createMarker(lat, lng);
-    markerArr.push(markerVar);
-    console.log(markerArr, markerArr.length);
+    var markerObject = new Object();
+    
+    markerObject.markerName = $("#markerName")[0].val();
+    markerObject.trailName = $("#trailName")[0].val();
+    markerObject.loopName = $("#loopName")[0].val();
+    markerObject.lat = e.latlng.lat;
+    markerObject.lng = e.latlng.lng;
+    markerObject.summaryVal = $("#summary")[0].val();
 
+    markerArr.push(markerObject);
     markerVar.on('click', function(e) {
       var lat = e.latlng.lat;
       var lng = e.latlng.lng;
