@@ -17,20 +17,27 @@ marker.on('click',function(e){
   console.log(e.latlng);
   var lat = e.latlng.lat;
   var lng = e.latlng.lng;
-  document.getElementsByClassName('latitude')[0].innerHTML = "Latitude: " + lat;
-  document.getElementsByClassName('longitude')[0].innerHTML = "Longitude: " + lng;
 
+  fillSidebarLatLng(lat, lng);
 
 });
+
+// fill in the html for latitude and longitude of the sidebar
+function fillSidebarLatLng(lat, lng) {
+  document.getElementsByClassName('latitude')[0].innerHTML = "Latitude: " + lat;
+  document.getElementsByClassName('longitude')[0].innerHTML = "Longitude: " + lng;
+}
 
 
 
 // grab lat & lon on click
 map.on('click', function(e) {
-    var latitude = e.latlng.lat;
-    var longitude = e.latlng.lng;
+    var lat = e.latlng.lat;
+    var lng = e.latlng.lng;
 
-    var marker = L.marker(new L.LatLng(latitude, longitude), {
+    fillSidebarLatLng(lat, lng);
+
+    var marker = L.marker(new L.LatLng(lat, lng), {
         icon: L.mapbox.marker.icon({
             'marker-color': 'ff8888'
         }),
