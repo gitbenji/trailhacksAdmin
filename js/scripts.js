@@ -24,7 +24,6 @@ marker.on('click',function(e){
 });
 
 
-=======
 
 // grab lat & lon on click
 map.on('click', function(e) {
