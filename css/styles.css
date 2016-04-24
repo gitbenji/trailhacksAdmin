@@ -53,3 +53,15 @@ body {
 .loopName {
   padding-bottom: 10px;
 }
+
+textarea {
+  border: 0px;
+  border-bottom: 1px solid white;
+  background-color: rgba(255, 0, 0, 0);
+}
+
+input {
+  border: 0px;
+  border-bottom: 1px solid white;
+  background-color: rgba(255, 0, 0, 0);
+}
