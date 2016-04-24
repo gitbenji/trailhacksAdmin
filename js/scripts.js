@@ -45,13 +45,14 @@ map.on('click', function(e) {
 
     var markerVar = createMarker(lat, lng);
     var markerObject = new Object();
-    
-    markerObject.markerName = $("#markerName")[0].val();
-    markerObject.trailName = $("#trailName")[0].val();
-    markerObject.loopName = $("#loopName")[0].val();
+
+    markerObject.markerName = $("#markerName").val();
+    markerObject.trailName = $("#trailName").val();
+    markerObject.loopName = $("#loopName").val();
     markerObject.lat = e.latlng.lat;
     markerObject.lng = e.latlng.lng;
-    markerObject.summaryVal = $("#summary")[0].val();
+    markerObject.summaryVal = $("#summary").val();
+    console.log(markerObject);
 
     markerArr.push(markerObject);
     markerVar.on('click', function(e) {
