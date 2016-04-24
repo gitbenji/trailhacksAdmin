@@ -8,7 +8,7 @@ $('#submit').on('click',function(){
   loginObject.email = $('#email').val();
   loginObject.password = $('#password').val();
 $.ajax ({
-    url: "http://www.trailhacks-api.herokuapp.com/users/authenticate",
+    url: "http://localhost:3000/users/authenticate",
     type: "POST",
     data: JSON.stringify(loginObject),
     dataType: "jsonp",
