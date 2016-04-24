@@ -8,13 +8,13 @@ $('#submit').on('click',function(){
   loginObject.email = $('#email').val();
   loginObject.password = $('#password').val();
 $.ajax ({
-    url: "http://localhost:3000/users/authenticate",
+    url: "http://localhost:3000/user/authenticate",
     type: "POST",
-    data: JSON.stringify(loginObject),
-    dataType: "jsonp",
+    data: loginObject,
     success: function(result) {
-      console.log('result');
-      // window.location.href = "index.html";
+      var authtoken = result.auth_token;
+      sessionStorage.setItem('authtoken', authtoken);
+      window.location.href = "index.html";
     },
     error: function() {
       console.log("error");

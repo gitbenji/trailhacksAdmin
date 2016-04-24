@@ -15,7 +15,6 @@
 
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -25,7 +24,6 @@
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
 
   <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
   <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
@@ -40,7 +38,12 @@
   <div class='five columns offset-by-seven brandon-regular' id='sidebar'>
     <input id='markerName' class='markerName side-text' placeholder='Marker Name'/>
     <input id='beaconNum' class='beaconNum side-text' placeholder='Beacon Number'/>
-    <input id='trailName' class='trailName side-text' placeholder='Trail Name'/>
+    <select id='trailName' class='trailName side-text' name="cars">
+      <option value="" disabled selected>Trail Name</option>
+      <option value=1>Domi</option>
+      <option value=2>Lafayette Heritage</option>
+      <option value=3>St. Marks</option>
+    </select>
     <input id='loopName' class='loopName side-text' placeholder='Loop Name'/>
     <input id='latitude' class='latitude side-text' placeholder='Latitude'/>
     <input id='longitude' class='Longitude side-text' placeholder='Longitude'/>
@@ -48,7 +51,7 @@
 
     <textarea id='summary' class='summary' placeholder='Marker Summary...'></textarea>
 
-<div id="row1">
+    <div id="row1">
 
         <input type='checkbox' class='hazards' name='hazards' value='Falling-rocks' id='Falling-rocks' />
         <label for='Falling-rocks'><img src='./css/hazards/Falling-rocks.png' /></label>
@@ -85,13 +88,10 @@
         <label class='row2' for='walkway'><img src='./css/hazards/walkway.png' /></label>
 
 
-
-
-
-
-  </div>
-  <button id='submitMarker'>Set Marker</button>
-<button id='exitSide'>x</button>
+      </div>
+      <button id='submitMarker' class="side-text">Set Marker</button>
+      <button id='exitSide'>x</button>
+      </div>
   <!-- <div id='test-click'></div> -->
 
   <script src='js/jquery.js'></script>

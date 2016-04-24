@@ -163,7 +163,7 @@ textarea:hover, input:hover {
 textarea {
   height: 110px;
   padding: 0px;
-  padding-top: 15px;
+  padding-top: 20px;
 }
 
 input.markerName {
@@ -171,8 +171,9 @@ input.markerName {
   margin-bottom: 18px;
 }
 
-input.trailName {
+#trailName {
   margin-bottom: 12px;
+  margin-top: 12px;
 }
 
 input.login{
@@ -195,11 +196,8 @@ div.headingMargin{
 }
 
 #submitMarker {
-  margin-top: 20px;
-  margin-left: -17em;
+  margin-top: 20em;
   transition: all 0.3s ease;
-  bottom: 1em;
-  position: absolute;
 }
 
 #exitSide {
@@ -207,6 +205,10 @@ div.headingMargin{
   position: absolute;
   top: 15px;
   right: 15px;
+}
+
+#latitude {
+  padding-top: 15px;
 }
 
 input[type="checkbox"] {
@@ -256,7 +258,7 @@ label img {
   z-index: 1;
   padding: 9px;
   padding-bottom: 1px;
-  padding-right: 5px;
+  padding-right: 0px;
   border: 1.8px solid white;
   width: 54px;
   margin-left: -14px;
@@ -265,20 +267,20 @@ label img {
 
 div#row1 {
   position: absolute;
-  margin-left: 10%;
-  top: 24.8em;
+  margin-left: 0%;
+  top: 29.8em;
   padding-top: 1em;
 }
 div#row2 {
   position: absolute;
-  margin-left: 34%;
-  top: 24.8em;
+  margin-left: 22%;
+  top: 29.8em;
   padding-top: 1em;
 }
 div#row3 {
   position: absolute;
-  margin-left: 60%;
-  top: 24.8em;
+  margin-left: 44%;
+  top: 29.8em;
   padding-top: 1em;
 }
 #headerLogin {
