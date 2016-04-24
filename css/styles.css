@@ -138,6 +138,13 @@ textarea, input {
   background-color: rgba(255, 0, 0, 0);
   width: 85%;
 }
+textarea:hover, input:hover {
+  border: 0px;
+  border-bottom: 1px solid #6b6b6b;
+  background-color: rgba(255, 0, 0, 0);
+  width: 85%;
+  transition: all 0.3s ease;
+}
 
 textarea {
   height: 110px;
@@ -171,7 +178,6 @@ div.headingMargin{
   margin-left: 92px;
   font-size: 5em;
   color: #C3D694;
-  margin-left: 0em;
 }
 
 #exitSide {
@@ -205,4 +211,10 @@ body.loginPage{
   background-size: cover;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus
+#summary:focus {
+    outline: none;
 }
