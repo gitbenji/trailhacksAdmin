@@ -111,6 +111,7 @@ body {
   box-shadow: 0px 5px 15px #939393;
   transition: all 0.3s ease;
   width: 36%;
+  overflow: scroll;
 }
 
 .side-flip {
@@ -301,7 +302,11 @@ div#row3 {
   -o-background-size: cover;
   background-size: cover;
 }
-
+img.ranger{
+  position: absolute;
+  top: -7.9em;
+  left: 21em;
+}
 
 input:focus,
 select:focus,
