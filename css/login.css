@@ -1,0 +1,280 @@
+
+@font-face {
+  font-family: 'Brandon-Light';
+  src: url('fonts/Brandon_light.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Brandon-Medium';
+  src: url('fonts/Brandon_med.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Brandon-Regular';
+  src: url('fonts/Brandon_reg.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Brandon-Bold';
+  src: url('fonts/Brandon_bld.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Brandon-Black';
+  src: url('fonts/Brandon_blk.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.brandon-light {
+  font-family: "Brandon-Light";
+}
+
+.brandon-medium {
+  font-family: "Brandon-Medium";
+}
+
+.brandon-regular {
+  font-family: "Brandon-Regular";
+}
+
+.brandon-bold {
+  font-family: "Brandon-Bold";
+}
+
+.brandon-black {
+  font-family: "Brandon-Black";
+}
+
+body {
+   margin:0 !important;
+  padding:0 !important;
+ }
+  #map {
+    position:absolute !important;
+    top:0 !important;
+     bottom:0 !important;
+    width:100% !important;
+    z-index: -1;
+  }
+
+
+
+
+  #test-click {
+    position: absolute;
+    z-index: 2;
+    height: 60px;
+    width: 60px;
+    background-color: red;
+  }
+
+  #sidebar {
+    position: absolute;
+    height: 90vh;
+    z-index: 1;
+    background-color: #eaeaea;
+    top: 1%;
+    padding-top: 40px;
+    padding-left: 50px;
+    padding-right: 50px;
+    color: #6b6b6b;
+    box-shadow: 0px 5px 15px #939393;
+    transition: all 0.3s ease;
+    width: 36%;
+  }
+
+  .side-flip {
+    z-index: 3 !important;
+    height: 92vh !important;
+    box-shadow: 0px 25px 85px #939393 !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .map-flip {
+    z-index: 1 !important;
+    top: 9em !important;
+    height: 76% !important;
+    width: 84.658% !important;
+    box-shadow: 0px 5px 15px #939393 !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .side-hidden {
+    /*margin-left: 100% !important;*/
+    transition: all 0.3s ease;
+  }
+
+  .side-text {
+    margin: 0;
+  }
+
+  .markerName {
+    padding-bottom: 5px;
+  }
+
+  .loopName {
+    padding-bottom: 10px;
+  }
+
+  textarea, input {
+    border: 0px;
+    border-bottom: 1px solid white;
+    background-color: rgba(255, 0, 0, 0);
+    width: 85%;
+  }
+  textarea:hover, input:hover {
+    border: 0px;
+    border-bottom: 1px solid #6b6b6b;
+    background-color: rgba(255, 0, 0, 0);
+    width: 85%;
+    transition: all 0.3s ease;
+  }
+
+  textarea {
+    height: 110px;
+    padding: 0px;
+    padding-top: 15px;
+  }
+
+  input.markerName {
+    font-size: 2.5em;
+    margin-bottom: 18px;
+  }
+
+  input.trailName {
+    margin-bottom: 12px;
+  }
+
+  input.login{
+    width: 40%;
+  }
+
+  div.headingMargin{
+    margin-top: 12em;
+    background-color: white;
+    width: 47%;
+    box-shadow: 0px 25px 85px #939393;
+    padding: 3em;
+    padding-top: 1.5em;
+  }
+
+  #header {
+    margin-top: 21px;
+    margin-left: 92px;
+    font-size: 5em;
+    color: #C3D694;
+  }
+
+  #submitMarker {
+    margin-top: 20px;
+    transition: all 0.3s ease;
+  }
+
+  #exitSide {
+    border: 0px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+  }
+
+  label:before {
+    background-color: white;
+    color: white;
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    border: 1px solid #C3D694;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    transition-duration: 0.4s;
+    transform: scale(0);
+  }
+
+  label img {
+    height: 50px;
+    width: 50px;
+    transition-duration: 0.2s;
+    transform-origin: 50% 50%;
+  }
+
+  :checked + label:before {
+    content: "✓";
+    background-color: #C3D694;
+    transform: scale(0.8);
+  }
+
+  :checked + label {
+    transform: scale(0.8);
+    position: relative;
+    z-index: 1;
+    padding: 9px;
+    padding-bottom: 1px;
+    padding-right: 5px;
+    border: 1.8px solid white;
+    width: 54px;
+    margin-left: -14px;
+    margin-top: -12px;
+  }
+
+  div#row2 {
+    position: absolute;
+    margin-left: 34%;
+    top: 336px;
+  }
+
+  #headerLogin {
+    margin-top: 21px;
+    margin-left: 92px;
+    font-size: 5em;
+    color: rgba(64, 64, 64, 0.7);
+    margin-left: 0em;
+
+
+  }
+
+  .bg{
+    background-image:url("../map2.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus
+  #summary:focus {
+      outline: none;
+  }
+
+
+#email, #password, #submit {
+  transition: all 0.3s ease;
+}
