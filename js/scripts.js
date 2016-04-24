@@ -29,7 +29,6 @@ function fillSidebarLatLng(lat, lng) {
 }
 
 
-
 // grab lat & lon on click
 map.on('click', function(e) {
     var lat = e.latlng.lat;
@@ -67,8 +66,10 @@ $('#button').on('click', function() {
 
 });
 
+$(document).ready(function() {
+  // Sidebar stuff
+  $('#test-click').on('click', function() {
+    $('#sidebar').toggleClass('side-hidden');
+  });
 
-// Sidebar stuff
-$('#test-click').on('click', function() {
-  $('#sidebar').toggleClass('side-hidden');
 });
