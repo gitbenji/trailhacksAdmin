@@ -31,28 +31,21 @@
   <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
 
 </head>
-
 <body>
-  <h1>Trailapp</h1>
-  <div id='map'></div>
+  <center>
 
-  <div class='five columns offset-by-seven brandon-regular' id='sidebar'>
-    <input id='markerName' class='markerName side-text' placeholder='Marker Name'/>
-    <input id='trailName' class='trailName side-text' placeholder='Trail Name'/>
+    <div style="headingMargin">
+        <h1>Rangr Login</h1>
+      <input class="login" type="text" id="email" placeholder="email"/><br>
+      <input class="login" type="password" id="password" placeholder="password"/><br>
+      <button type="button" id="submit"/>
+    </div>
+  </center>
 
-    <input id='latitude' class='latitude side-text' placeholder='Latitude'/>
-    <input id='longitude' class='Longitude side-text' placeholder='Longitude'/>
+<script src='js/jquery.js'></script>
+<script src='create.js'></script>
 
-    <textarea id='summary' class='summary'></textarea>
-    <button id='submitMarker'></button>
-
-    <button id='exitSide'></button>
-  </div>
-
-  <!-- <div id='test-click'></div> -->
-
-  <script src='js/jquery.js'></script>
-  <script src='js/scripts.js'></script>
+<!-- <script src='js/scripts.js'></script> -->
 </body>
 
 </html>
