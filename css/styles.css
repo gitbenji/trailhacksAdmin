@@ -235,8 +235,8 @@ label:before {
 }
 
 label img {
-  height: 50px;
-  width: 50px;
+  height: 2em;
+  width: 2em;
   transition-duration: 0.2s;
   transform-origin: 50% 50%;
 }
@@ -263,7 +263,7 @@ label img {
 div#row2 {
   position: absolute;
   margin-left: 34%;
-  top: 336px;
+  top: 24.8em;
 }
 
 #headerLogin {

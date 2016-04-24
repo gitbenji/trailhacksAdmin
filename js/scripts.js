@@ -16,6 +16,24 @@ function fillSidebar(markerObject) {
   $('#latitude').val(markerObject.lat);
   $('#longitude').val(markerObject.lng);
   $('#summary').val(markerObject.summaryVal);
+  var iconArr = $('.hazards');
+  for(var j=0; j<iconArr.length; j++) {
+    iconArr[j].checked = false;
+  }
+
+  // checks selected hazards
+  var hazardArr = markerObject.hazardArr;
+  console.log(hazardArr);
+
+  for(var j=0; j<hazardArr.length; j++) {
+    console.log(hazardArr[j])
+    for(var h=0; h<$('.hazards').length; h++){
+      var id = $('.hazards')[h].id;
+      if ($('.hazards')[h].id == hazardArr[j]) {
+        $('#' + id).prop("checked", true);
+      }
+    }
+  }
 }
 
 function fillSidebarLatLng(lat, lng) {
@@ -56,6 +74,7 @@ map.on('click', function(e) {
     var markerObject = new Object();
     markerObject.lat = lat;
     markerObject.lng = lng;
+    markerObject.hazardArr = [];
     markerArr.push(markerObject);
 
     fillSidebar(markerObject);
@@ -89,14 +108,22 @@ $('#exitSide').on('click', function() {
 $('#submitMarker').on('click', function() {
 
   var hazardArr = [];
+  var hazard;
 
-  console.log($('input.hazards:checkbox:checked'));
+  var hazardElementArr = ($('input.hazards:checkbox:checked'));
 
-  var hazardElementArr = $('input.hazards:checkbox:checked');
-  console.log(hazardElementArr);
+  for(var j=0; j<hazardElementArr.length; j++) {
+    hazard = hazardElementArr[j].value;
+    hazardArr.push(hazard);
+    console.log(hazardArr);
+  }
+
+  // hazardElementArr.forEach(function(hazardElement) {
+  //   hazardArr.push(hazardElement.val());
+  //   console.log(hazardArr)
+  // });
 
   var markerObject = markerArr[activeMarker];
-  console.log(activeMarker, markerObject);
 
   markerObject.markerName = $("#markerName").val();
   markerObject.trailName = $("#trailName").val();
@@ -104,6 +131,7 @@ $('#submitMarker').on('click', function() {
   markerObject.lat = $("#latitude").val();
   markerObject.lng = $("#longitude").val();
   markerObject.summaryVal = $("#summary").val();
+  markerObject.hazardArr = hazardArr;
 
   markerArr[activeMarker] =  markerObject;
   console.log(markerObject);
