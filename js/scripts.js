@@ -59,14 +59,12 @@ map.on('click', function(e) {
     markerVar.on('click', function(e) {
       var lat = e.latlng.lat;
       var lng = e.latlng.lng;
-<<<<<<< HEAD
       var index = e.target.id;
       var markerObject = markerArr[index];
       console.log(markerObject);
-=======
+
       console.log(e.target.id);
 
->>>>>>> 39d26eb931148815a2fa9792ea6792f99fd46ace
       fillSidebarLatLng(lat, lng);
     });
 
