@@ -12,6 +12,17 @@ var marker = L.marker(new L.LatLng(30.445895, -84.218511), {
 marker.bindPopup('This marker is draggable! Move it around.');
 marker.addTo(map);
 
+marker.on('click',function(e){
+  console.log(e.latlng);
+  var lat = e.latlng.lat;
+  var lng = e.latlng.lng;
+  document.getElementsByClassName('latitude')[0].innerHTML = "Latitude: " + lat;
+  document.getElementsByClassName('longitude')[0].innerHTML = "Longitude: " + lng;
+
+
+});
+
+
 $('#test-click').click(function() {
   $('#sidebar').toggleClass('side-hidden');
 });
