@@ -32,6 +32,7 @@ function createMarker (lat,lng){
   markerVar.id = i;
   i++;
 
+
   return markerVar;
 }
 
@@ -45,7 +46,6 @@ map.on('click', function(e) {
 
     var markerVar = createMarker(lat, lng);
     var markerObject = new Object();
-
     markerObject.markerName = $("#markerName").val();
     markerObject.trailName = $("#trailName").val();
     markerObject.loopName = $("#loopName").val();
@@ -58,7 +58,9 @@ map.on('click', function(e) {
     markerVar.on('click', function(e) {
       var lat = e.latlng.lat;
       var lng = e.latlng.lng;
-
+      var index = e.target.id;
+      var markerObject = markerArr[index];
+      console.log(markerObject);
       fillSidebarLatLng(lat, lng);
     });
 
