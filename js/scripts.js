@@ -19,12 +19,13 @@ function fillSidebar(markerObject) {
   $('#longitude').val(markerObject.longitude);
   $('#summary').val(markerObject.summary);
   var iconArr = $('.hazards');
+
   for(var j=0; j<iconArr.length; j++) {
     iconArr[j].checked = false;
   }
 
   // checks selected hazards
-  var hazardArr = markerObject.hazardArr;
+  var hazardArr = markerObject.hazard_arr;
   console.log(hazardArr);
 
   for(var j=0; j<hazardArr.length; j++) {
@@ -76,7 +77,7 @@ map.on('click', function(e) {
     var markerObject = new Object();
     markerObject.latitude = lat;
     markerObject.longitude = lng;
-    markerObject.hazardArr = [];
+    markerObject.hazard_arr = [];
     markerArr.push(markerObject);
 
     fillSidebar(markerObject);
