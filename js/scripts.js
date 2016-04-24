@@ -13,6 +13,7 @@ var map = L.mapbox.map('map', 'mapbox.streets')
 function fillSidebar(markerObject) {
   $('#markerName').val(markerObject.markerName);
   $('#trailName').val(markerObject.trailName);
+  $('#loopName').val(markerObject.loopName);
   $('#latitude').val(markerObject.lat);
   $('#longitude').val(markerObject.lng);
   $('#summary').val(markerObject.summaryVal);
@@ -128,6 +129,7 @@ $('#submitMarker').on('click', function() {
   markerObject.marker_name = $("#markerName").val();
   markerObject.trail_name = $("#trailName").val();
   markerObject.loop_name = $("#loopName").val();
+  markerObject.beacon_number = $("#beaconNum").val();
   markerObject.latitude = $("#latitude").val();
   markerObject.longitude = $("#longitude").val();
   markerObject.summary = $("#summary").val();
