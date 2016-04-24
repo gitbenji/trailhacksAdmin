@@ -180,6 +180,11 @@ div.headingMargin{
   color: #C3D694;
 }
 
+#submitMarker {
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
 #exitSide {
   border: 0px;
   position: absolute;
@@ -187,9 +192,64 @@ div.headingMargin{
   right: 15px;
 }
 
+input[type="checkbox"] {
+  display: none;
+}
 
-body.loginPage{
-  background-image: url("/.../bgBlur.png");
+label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+label:before {
+  background-color: white;
+  color: white;
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  border: 1px solid #C3D694;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 28px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+label img {
+  height: 50px;
+  width: 50px;
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+
+:checked + label:before {
+  content: "✓";
+  background-color: #C3D694;
+  transform: scale(0.8);
+}
+
+:checked + label {
+  transform: scale(0.8);
+  position: relative;
+  z-index: 1;
+  padding: 9px;
+  padding-bottom: 1px;
+  padding-right: 5px;
+  border: 1.8px solid white;
+  width: 54px;
+  margin-left: -14px;
+  margin-top: -12px;
+}
+
+div#row2 {
+  position: absolute;
+  margin-left: 34%;
+  top: 336px;
 }
 
 #headerLogin {
@@ -210,6 +270,7 @@ body.loginPage{
   -o-background-size: cover;
   background-size: cover;
 }
+
 
 input:focus,
 select:focus,

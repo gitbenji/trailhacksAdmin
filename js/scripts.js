@@ -88,6 +88,13 @@ $('#exitSide').on('click', function() {
 
 $('#submitMarker').on('click', function() {
 
+  var hazardArr = [];
+
+  console.log($('input.hazards:checkbox:checked'));
+
+  var hazardElementArr = $('input.hazards:checkbox:checked');
+  console.log(hazardElementArr);
+
   var markerObject = markerArr[activeMarker];
   console.log(activeMarker, markerObject);
 
