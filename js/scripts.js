@@ -44,10 +44,24 @@ map.on('click', function(e) {
 
 
 
+$('#button').on('click', function() {
+  var summaryVal = $('#summary').val();
 
+  $.ajax('http://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    data: {
+      title: 'foo',
+      body: summaryVal,
+      userId: 1
+    }
+  }).then(function(data) {
+    console.log(data);
+  });
+
+});
 
 
 // Sidebar stuff
-$('#test-click').click(function() {
+$('#test-click').on('click', function() {
   $('#sidebar').toggleClass('side-hidden');
 });
