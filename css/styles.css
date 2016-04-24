@@ -64,3 +64,11 @@ textarea, input {
 input.markerName {
   font-size: 2.5em;
 }
+
+input.login{
+  width: 19%;
+}
+
+div.headingMargin{
+  margin-top: 12em;
+}

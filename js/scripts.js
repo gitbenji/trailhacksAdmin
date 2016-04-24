@@ -86,17 +86,18 @@ $('#button').on('click', function() {
   console.log(markerArr);
 
 
-  // $.ajax('http://jsonplaceholder.typicode.com/posts', {
-  //   method: 'POST',
-  //   data: {
-  //     title: 'foo',
-  //     body: summaryVal,
-  //     userId: 1
-  //   }
-  // }).then(function(data) {
-  //   console.log(data);
-  // });
-
+  // $.ajax ({
+  // 		url: "trailhacks-api.herokuapp.com",
+  // 		type: "POST",
+  // 		data: JSON.stringify(markerObject),
+  // 		contentType: "application/json",
+  // 		success: function(result) {
+  // 			console.log(result);
+  // 		},
+  // 		error: function() {
+  // 			console.log("error");
+  // 		}
+  // 	});
 });
 
 // $(document).ready(function() {
