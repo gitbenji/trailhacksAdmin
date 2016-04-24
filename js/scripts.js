@@ -12,6 +12,30 @@ var marker = L.marker(new L.LatLng(30.445895, -84.218511), {
 marker.bindPopup('This marker is draggable! Move it around.');
 marker.addTo(map);
 
+
+// grab lat & lon on click
+map.on('click', function(e) {
+    var latitude = e.latlng.lat;
+    var longitude = e.latlng.lng;
+
+    var marker = L.marker(new L.LatLng(latitude, longitude), {
+        icon: L.mapbox.marker.icon({
+            'marker-color': 'ff8888'
+        }),
+        draggable: true
+    });
+    marker.bindPopup('This marker is draggable! Move it around.');
+    marker.addTo(map);
+
+    $('#sidebar').removeClass('side-hidden');
+});
+
+
+
+
+
+
+// Sidebar stuff
 $('#test-click').click(function() {
   $('#sidebar').toggleClass('side-hidden');
 });
