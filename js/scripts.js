@@ -1,6 +1,7 @@
 
 // to be filled with GET request
 var markerArr = [];
+var activeMarker;
 var i = markerArr.length;
 var isFlipped = false;
 
@@ -8,25 +9,28 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiYnNoYW5rd2l0eiIsImEiOiJjaW14cHA0YTcwM2x2dXdtN
 var map = L.mapbox.map('map', 'mapbox.streets')
 .setView([30.433832, -84.290650], 12);
 
-// fill in the html for latitude and longitude of the sidebar
+// fill in the input values of the sidebar
+function fillSidebar(markerObject) {
+  $('#markerName').val(markerObject.markerName);
+  $('#trailName').val(markerObject.trailName);
+  $('#latitude').val(markerObject.lat);
+  $('#longitude').val(markerObject.lng);
+  $('#summary').val(markerObject.summaryVal);
+}
+
 function fillSidebarLatLng(lat, lng) {
   $('#latitude').val(lat);
   $('#longitude').val(lng);
 }
 
-
-// function fillSidebarNames()
-// document.getElementsByClassName('markerName')[0].innerHTML =
-
-
-function createMarker (lat,lng){
+function createMarker(lat,lng) {
   var markerVar = L.marker(new L.LatLng(lat, lng), {
       icon: L.mapbox.marker.icon({
           'marker-color': 'ff8888'
       }),
       draggable: true
   });
-  markerVar.bindPopup('This marker is draggable! Move it around.');
+  // markerVar.bindPopup('poop');
   markerVar.addTo(map);
 
   markerVar.id = i;
@@ -45,46 +49,36 @@ map.on('click', function(e) {
     var lat = e.latlng.lat;
     var lng = e.latlng.lng;
 
-    console.log(isFlipped);
+    fillSidebarLatLng(lat, lng);
 
-    if (!isFlipped) {
-      fillSidebarLatLng(lat, lng);
+    var markerVar = createMarker(lat, lng);
+    activeMarker = markerVar.id;
+    var markerObject = new Object();
+    markerObject.lat = lat;
+    markerObject.lng = lng;
+    markerArr.push(markerObject);
 
-      var markerVar = createMarker(lat, lng);
-      console.log(markerVar);
-      var markerObject = new Object();
-      markerObject.markerName = $("#markerName").val();
-      markerObject.trailName = $("#trailName").val();
-      markerObject.loopName = $("#loopName").val();
-      markerObject.lat = e.latlng.lat;
-      markerObject.lng = e.latlng.lng;
-      markerObject.summaryVal = $("#summary").val();
-      console.log(markerObject);
-
-      markerArr.push(markerObject);
-
-      flipUI();
-      isFlipped = true;
-    }
-
+    fillSidebar(markerObject);
 
     markerVar.on('click', function(e) {
-      // if (isFlipped) fade & change out text
+      //active marker updates to id of click marker
+      activeMarker = e.target.id;
 
-      var lat = e.latlng.lat;
-      var lng = e.latlng.lng;
-      var index = e.target.id;
-      var markerObject = markerArr[index];
-
-      fillSidebarLatLng(lat, lng);
+      var markerObject = markerArr[activeMarker];
+      console.log(activeMarker, markerObject);
 
       if (!isFlipped) {
         flipUI();
         isFlipped = true;
       }
+
+      fillSidebar(markerObject);
     });
 
-    $('#sidebar').removeClass('side-hidden');
+    if (!isFlipped) {
+      flipUI();
+      isFlipped = true;
+    }
 });
 
 $('#exitSide').on('click', function() {
@@ -93,24 +87,22 @@ $('#exitSide').on('click', function() {
 });
 
 $('#submitMarker').on('click', function() {
-  var summaryVal = $('#summary').val();
 
-  $.ajax('http://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    data: {
-      title: 'foo',
-      body: summaryVal,
-      userId: 1
-    }
-  }).then(function(data) {
-    console.log(data);
-  });
+  var markerObject = markerArr[activeMarker];
+  console.log(activeMarker, markerObject);
+
+  markerObject.markerName = $("#markerName").val();
+  markerObject.trailName = $("#trailName").val();
+  markerObject.loopName = $("#loopName").val();
+  markerObject.lat = $("#latitude").val();
+  markerObject.lng = $("#longitude").val();
+  markerObject.summaryVal = $("#summary").val();
+
+  markerArr[activeMarker] =  markerObject;
+  console.log(markerObject);
+  console.log(markerArr);
 
   flipUI();
   isFlipped = false;
-});
 
-$(document).ready(function() {
-  // Sidebar stuff
-  // $('#test-click').on('click', flipUI());
 });
